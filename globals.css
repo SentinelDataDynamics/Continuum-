@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-fraunces: "Fraunces", Georgia, serif;
+    --font-plex-sans: "IBM Plex Sans", system-ui, sans-serif;
+    --font-plex-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  * {
+    @apply border-parchment-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment text-ink font-body antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  ::selection {
+    background-color: #b4823d;
+    color: #f7f3ea;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b4823d;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-signet;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12;
+  }
+
+  .ledger-rule {
+    @apply border-t border-dashed border-parchment-line;
+  }
+}
